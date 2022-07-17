@@ -1,0 +1,10 @@
+.tbVersao {
+  padding: 1vh;
+}
+
+.colun{
+  border-collapse: separate; 
+  border-spacing: 1vw;
+  margin: 0 0 0 0;
+  border: solid 1px;
+}
