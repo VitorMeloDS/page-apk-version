@@ -1,24 +1,32 @@
-import './index.css'
+import { Horario } from "../interface/horario";
+import "./index.css";
 
 type props = {
-  estado: string
-}
+  estado: Horario[];
+};
 
-function Tabela({estado}: props){
+function Tabela({ estado }: props) {
   return (
-    <div className='tbVersao'>
-      <table>
-        <td className='colun'>{estado}
-          <tr>APK versão 1.0.0
-          <input type="file" />
-          <a href='link/arquivo' download='nome-do-arquivo.txt'>Baixe o Apk</a>
-          </tr>
-          <tr>APK versão 1.0.1</tr>
-          <tr>APK versão 1.0.2</tr>
-        </td>
-      </table>
-    </div>
-  )
+    <table>
+      <thead></thead>
+      <tbody className='colun'>
+        {estado?.map((ambiente) => {
+          return (
+            <div className='colun'>
+              <td key={ambiente.id} >
+                {ambiente?.dia}
+                <tr><b>data: </b>{ambiente?.data}</tr>
+                <tr><b>Entrada: </b>{ambiente?.horaInicio}</tr>
+                <tr><b>Almoço: </b>{ambiente?.horaAlmoco}</tr>
+                <tr><b>Volta: </b>{ambiente?.horaVolta}</tr>
+                <tr><b>Saída: </b>{ambiente?.horaSaida}</tr>
+              </td>
+            </div>
+          );
+        })}
+      </tbody>
+    </table>
+  );
 }
 
 export default Tabela;
